@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
    var route_url = "http://openapi.gbis.go.kr/ws/rest/busrouteservice";
-   var route_key = "aZyc1Eibkz0Spmkj4oqrF%2Bd8k1FK0maWmCZn4bor%2FDTRyfHz3cPaQ1wfh8DBWx8GwBuC4d19onos3Gw6WozScA%3D%3D";
+   var route_key = "";
    var bus_url = "http://openapi.gbis.go.kr/ws/rest/buslocationservice";
    let list_for_route_id = [];
 

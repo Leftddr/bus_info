@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
            for(let i = 0 ; i < route_name.length ; i++){
                 document.querySelector("#result" + i).addEventListener('click', function(){
-                    get_info(list_for_route_id[i]);
+                    //get_info(list_for_route_id[i]);
                     get_target(list_for_route_id[i]);
                 });
             }
@@ -82,15 +82,21 @@ document.addEventListener('DOMContentLoaded', function() {
    }
 
    function get_target(route_id){
-       getTarget(route_id).then(function(data){
-            alert(data.innerHTML);
+    getTarget(route_id).then(function(data){
+            var arrMsg = data.getElementsByTagName("arrmsg1");
+            var rtNm = data.getElementsByTagName("rtNm");
+            var stId = data.getElementsByTagName("stId");
             var stNm = data.getElementsByTagName("stNm");
+
             var result = "";
-            for(let i = 0 ; i < stNm.length ; i++){
-                result += '<p>' + stNm[i].childNodes[0].nodeValue + '</p>';
+            for(let i = 0 ; i < arrMsg.length ; i++){
+                result += '<div id = result' + i + ' style = "border:1px solid black">';
+                result += '<p style = "font-size:10px">' + 'arrMsg : ' + arrMsg[i].childNodes[0].nodeValue + '</br>' + 'rtNm : ' + rtNm[i].childNodes[0].nodeValue + '</br>' + 'stId : ' 
+                + stId[i].childNodes[0].nodeValue + '</br>' + 'stNm : ' + stNm[i].childNodes[0].nodeValue + '</p>';
+                result += '</div>';
             }
             document.querySelector("#result").innerHTML = result;
-       })
+        })
    }
 
    function getTarget(route_id){
